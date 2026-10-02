@@ -1,5 +1,5 @@
+"use client";
 const services = [
-  {
     number: "01",
     title: "WEB DESIGN",
     text: "Premium interfaces and digital experiences built around strong visual identity.",
