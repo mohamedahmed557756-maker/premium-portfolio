@@ -20,9 +20,7 @@ export default function InteractiveEffects() {
           }
         });
       },
-      {
-        threshold: 0.12,
-      }
+      { threshold: 0.12 }
     );
 
     revealElements.forEach((element) => observer.observe(element));
@@ -39,6 +37,7 @@ export default function InteractiveEffects() {
     let mouseY = 0;
     let cursorX = 0;
     let cursorY = 0;
+    let animationFrame;
 
     const moveCursor = (event) => {
       mouseX = event.clientX;
@@ -55,7 +54,7 @@ export default function InteractiveEffects() {
       cursor.style.left = `${cursorX}px`;
       cursor.style.top = `${cursorY}px`;
 
-      requestAnimationFrame(animateCursor);
+      animationFrame = requestAnimationFrame(animateCursor);
     };
 
     window.addEventListener("mousemove", moveCursor);
@@ -156,6 +155,8 @@ export default function InteractiveEffects() {
       window.removeEventListener("mousemove", moveCursor);
       window.removeEventListener("scroll", handleParallax);
 
+      cancelAnimationFrame(animationFrame);
+
       interactiveElements.forEach((element) => {
         element.removeEventListener("mouseenter", addCursorHover);
         element.removeEventListener("mouseleave", removeCursorHover);
@@ -164,10 +165,6 @@ export default function InteractiveEffects() {
       magneticButtons.forEach((button) => {
         button.removeEventListener("mousemove", magneticMove);
         button.removeEventListener("mouseleave", magneticLeave);
-      });
-
-      cards.forEach((card) => {
-        card.style.transform = "";
       });
 
       cursor.remove();
