@@ -10,7 +10,7 @@ html {
 
 body {
   background: #050505;
-  color: #ffffff;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
@@ -25,6 +25,670 @@ button {
 }
 
 ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.9),
+    rgba(5, 5, 5, 0)
+  );
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #8b5cf6;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links a {
+  opacity: 0.65;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.nav-cta {
+  padding: 12px 20px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 100px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.nav-cta:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 150px 8vw 80px;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  color: rgba(255,255,255,0.55);
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a78bfa;
+  box-shadow: 0 0 18px #a78bfa;
+  animation: pulse 2s infinite;
+}
+
+.hero h1 {
+  font-size: clamp(60px, 9vw, 150px);
+  line-height: 0.84;
+  letter-spacing: -0.075em;
+  font-weight: 800;
+  position: relative;
+}
+
+.hero h1 span {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #8b5cf6,
+    #c084fc,
+    #ffffff
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
+}
+
+.hero-description {
+  max-width: 580px;
+  margin-top: 40px;
+  color: rgba(255,255,255,0.55);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 16px 24px;
+  border-radius: 100px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.35s ease;
+}
+
+.primary-button {
+  background: #fff;
+  color: #000;
+}
+
+.primary-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(255,255,255,0.15);
+}
+
+.primary-button span {
+  margin-left: 12px;
+}
+
+.secondary-button {
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.secondary-button:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-4px);
+}
+
+/* =========================
+   HERO ORBIT
+========================= */
+
+.hero-orbit {
+  position: absolute;
+  right: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(40vw, 520px);
+  height: min(40vw, 520px);
+  pointer-events: none;
+}
+
+.orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(167,139,250,0.25);
+  border-radius: 50%;
+}
+
+.orbit-one {
+  transform: rotate(25deg) scaleX(0.5);
+  animation: orbitRotate 15s linear infinite;
+}
+
+.orbit-two {
+  transform: rotate(-25deg) scaleY(0.5);
+  animation: orbitRotateReverse 18s linear infinite;
+}
+
+.orbit-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #c084fc,
+    #4c1d95 45%,
+    #09020f
+  );
+  box-shadow:
+    0 0 50px rgba(139,92,246,0.45),
+    0 0 150px rgba(139,92,246,0.2);
+}
+
+.orbit-core span {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* =========================
+   GLOW
+========================= */
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 500px;
+  height: 500px;
+  background: rgba(91,33,182,0.18);
+  right: -100px;
+  top: 20%;
+}
+
+.glow-two {
+  width: 350px;
+  height: 350px;
+  background: rgba(37,99,235,0.12);
+  left: 20%;
+  bottom: -150px;
+}
+
+/* =========================
+   HERO BOTTOM
+========================= */
+
+.hero-bottom {
+  position: absolute;
+  bottom: 35px;
+  left: 8vw;
+  right: 8vw;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: rgba(255,255,255,0.35);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.scroll-line {
+  height: 1px;
+  width: 70px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.intro-section,
+.services-section,
+.work-section,
+.contact-section {
+  padding: 150px 8vw;
+  position: relative;
+}
+
+.section-label {
+  color: rgba(255,255,255,0.35);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+}
+
+.intro-section {
+  background: #080808;
+}
+
+.intro-section h2,
+.work-heading h2,
+.contact-section h2 {
+  font-size: clamp(45px, 7vw, 100px);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.intro-section h2 span,
+.work-heading h2 span,
+.contact-section h2 span {
+  color: rgba(255,255,255,0.3);
+}
+
+.large-text {
+  max-width: 700px;
+  margin-top: 70px;
+  margin-left: auto;
+  color: rgba(255,255,255,0.5);
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.service-card {
+  min-height: 300px;
+  padding: 35px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-right: 1px solid rgba(255,255,255,0.12);
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.service-card:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.service-card > span {
+  color: rgba(255,255,255,0.3);
+  font-size: 12px;
+}
+
+.service-card h3 {
+  margin-top: 90px;
+  font-size: 30px;
+}
+
+.service-card p {
+  margin-top: 15px;
+  max-width: 400px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 25px;
+  transition: 0.3s ease;
+}
+
+.service-card:hover .card-arrow {
+  transform: translate(5px, -5px);
+}
+
+/* =========================
+   WORK
+========================= */
+
+.work-section {
+  background: #080808;
+}
+
+.work-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.work-heading p {
+  max-width: 250px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+.project-card {
+  min-height: 280px;
+  padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: grid;
+  grid-template-columns: 100px 1fr 50px;
+  gap: 30px;
+  align-items: center;
+  transition: 0.4s ease;
+}
+
+.project-card:hover {
+  padding-left: 55px;
+  background: rgba(255,255,255,0.035);
+}
+
+.project-number,
+.project-type {
+  color: rgba(255,255,255,0.3);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.project-card h3 {
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: -0.05em;
+}
+
+.project-copy {
+  max-width: 500px;
+  margin-top: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+.project-arrow {
+  font-size: 30px;
+  transition: 0.3s ease;
+}
+
+.project-card:hover .project-arrow {
+  transform: translate(8px, -8px);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-button {
+  width: fit-content;
+  margin-top: 60px;
+  padding: 18px 28px;
+  border-radius: 100px;
+  background: #fff;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+}
+
+.contact-button:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 30px 8vw;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255,255,255,0.3);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+
+  50% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 0%;
+  }
+}
+
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg) scaleX(0.5);
+  }
+
+  to {
+    transform: rotate(360deg) scaleX(0.5);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  from {
+    transform: rotate(0deg) scaleY(0.5);
+  }
+
+  to {
+    transform: rotate(-360deg) scaleY(0.5);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+  .navbar {
+    height: 75px;
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    padding: 10px 14px;
+    font-size: 9px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding: 130px 20px 80px;
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: clamp(55px, 17vw, 95px);
+  }
+
+  .hero-description {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .hero-orbit {
+    width: 280px;
+    height: 280px;
+    right: -80px;
+    top: 65%;
+    opacity: 0.7;
+  }
+
+  .orbit-core {
+    width: 80px;
+    height: 80px;
+  }
+
+  .orbit-core span {
+    font-size: 20px;
+  }
+
+  .hero-bottom {
+    left: 20px;
+    right: 20px;
+  }
+
+  .intro-section,
+  .services-section,
+  .work-section,
+  .contact-section {
+    padding: 100px 20px;
+  }
+
+  .intro-section h2,
+  .work-heading h2,
+  .contact-section h2 {
+    font-size: clamp(45px, 14vw, 75px);
+  }
+
+  .large-text {
+    font-size: 18px;
+    margin-top: 45px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 260px;
+    border-right: 0;
+  }
+
+  .service-card h3 {
+    margin-top: 70px;
+  }
+
+  .work-heading {
+    display: block;
+  }
+
+  .work-heading p {
+    margin-top: 30px;
+  }
+
+  .project-card {
+    grid-template-columns: 40px 1fr 25px;
+    gap: 12px;
+    padding: 30px 0;
+  }
+
+  .project-card:hover {
+    padding-left: 10px;
+  }
+
+  .project-card h3 {
+    font-size: 42px;
+  }
+
+  .project-copy {
+    font-size: 13px;
+  }
+
+  .footer {
+    padding: 25px 20px;
+  }
 }
