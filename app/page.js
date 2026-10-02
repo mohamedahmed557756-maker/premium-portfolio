@@ -1,4 +1,5 @@
 "use client";
+import InteractiveEffects from "./InteractiveEffects";
 const services = [
     number: "01",
     title: "WEB DESIGN",
