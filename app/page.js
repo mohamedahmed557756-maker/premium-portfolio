@@ -1,6 +1,9 @@
 "use client";
+
 import InteractiveEffects from "./InteractiveEffects";
+
 const services = [
+  {
     number: "01",
     title: "WEB DESIGN",
     text: "Premium interfaces and digital experiences built around strong visual identity.",
@@ -46,9 +49,9 @@ const projects = [
 export default function Home() {
   return (
     <main className="site">
+      <InteractiveEffects />
 
       {/* NAVIGATION */}
-
       <nav className="navbar">
         <a href="#" className="logo">
           AH<span>.</span>
@@ -66,11 +69,8 @@ export default function Home() {
         </a>
       </nav>
 
-
       {/* HERO */}
-
       <section className="hero">
-
         <div className="hero-noise" />
         <div className="hero-grid" />
 
@@ -78,7 +78,6 @@ export default function Home() {
         <div className="hero-glow hero-glow-two" />
 
         <div className="hero-content">
-
           <div className="hero-status">
             <span />
             AVAILABLE FOR PROJECTS
@@ -103,7 +102,6 @@ export default function Home() {
           </p>
 
           <div className="hero-buttons">
-
             <a href="#work" className="hero-button primary">
               Explore My Work
               <span>↗</span>
@@ -112,26 +110,19 @@ export default function Home() {
             <a href="#contact" className="hero-button secondary">
               Start a Project
             </a>
-
           </div>
-
         </div>
 
-
         {/* HERO VISUAL */}
-
         <div className="hero-visual">
-
           <div className="visual-orbit orbit-a" />
           <div className="visual-orbit orbit-b" />
           <div className="visual-orbit orbit-c" />
 
           <div className="visual-core">
-
             <div className="core-inner">
               AH
             </div>
-
           </div>
 
           <div className="floating-card card-one">
@@ -148,12 +139,9 @@ export default function Home() {
             <span>03</span>
             <strong>AI</strong>
           </div>
-
         </div>
 
-
         <div className="hero-bottom">
-
           <span>SCROLL TO EXPLORE</span>
 
           <div className="scroll-line">
@@ -161,23 +149,17 @@ export default function Home() {
           </div>
 
           <span>2026</span>
-
         </div>
-
       </section>
 
-
       {/* ABOUT */}
-
       <section id="about" className="about section">
-
         <div className="section-top">
           <span>01 / ABOUT</span>
           <span>AHMED HANY</span>
         </div>
 
         <div className="about-layout">
-
           <h2>
             DESIGNING
             <br />
@@ -185,7 +167,6 @@ export default function Home() {
           </h2>
 
           <div className="about-copy">
-
             <p className="about-intro">
               I&apos;m Ahmed Hany — a digital creator focused on web design,
               development and AI-powered automation.
@@ -200,25 +181,18 @@ export default function Home() {
             <div className="about-signature">
               AH<span>.</span>
             </div>
-
           </div>
-
         </div>
-
       </section>
 
-
       {/* SERVICES */}
-
       <section id="services" className="services section">
-
         <div className="section-top">
           <span>02 / SERVICES</span>
           <span>WHAT I DO</span>
         </div>
 
         <div className="services-header">
-
           <h2>
             FROM IDEA
             <br />
@@ -229,49 +203,36 @@ export default function Home() {
             Strategy, design, development and automation brought together
             into one digital experience.
           </p>
-
         </div>
 
         <div className="services-grid">
-
           {services.map((service) => (
             <article className="service-card" key={service.number}>
-
               <div className="service-number">
                 {service.number}
               </div>
 
               <div className="service-content">
-
                 <h3>{service.title}</h3>
-
                 <p>{service.text}</p>
-
               </div>
 
               <div className="service-arrow">
                 ↗
               </div>
-
             </article>
           ))}
-
         </div>
-
       </section>
 
-
       {/* WORK */}
-
       <section id="work" className="work section">
-
         <div className="section-top">
           <span>03 / SELECTED WORK</span>
           <span>PROJECTS</span>
         </div>
 
         <div className="work-heading">
-
           <h2>
             SELECTED
             <br />
@@ -282,54 +243,39 @@ export default function Home() {
             A selection of digital experiences, websites and intelligent
             systems.
           </p>
-
         </div>
 
         <div className="projects">
-
           {projects.map((project) => (
             <article className="project" key={project.number}>
-
               <div className="project-number">
                 {project.number}
               </div>
 
               <div className="project-info">
-
                 <span>{project.category}</span>
-
                 <h3>{project.title}</h3>
-
                 <p>{project.text}</p>
-
               </div>
 
               <div className="project-action">
                 VIEW
                 <span>↗</span>
               </div>
-
             </article>
           ))}
-
         </div>
-
       </section>
 
-
       {/* AI AUTOMATION */}
-
       <section className="automation section">
-
         <div className="section-top">
           <span>04 / AI AUTOMATION</span>
           <span>INTELLIGENT SYSTEMS</span>
         </div>
 
         <div className="automation-layout">
-
           <div>
-
             <h2>
               MAKE
               <br />
@@ -340,11 +286,9 @@ export default function Home() {
               I build automation systems that connect websites, forms,
               databases, email and AI into intelligent workflows.
             </p>
-
           </div>
 
           <div className="workflow">
-
             <div className="workflow-node">
               WEBSITE
             </div>
@@ -366,25 +310,18 @@ export default function Home() {
             <div className="workflow-node">
               ACTION
             </div>
-
           </div>
-
         </div>
-
       </section>
 
-
       {/* PROCESS */}
-
       <section className="process section">
-
         <div className="section-top">
           <span>05 / PROCESS</span>
           <span>HOW I WORK</span>
         </div>
 
         <div className="process-grid">
-
           <div>
             <span>01</span>
             <h3>DISCOVER</h3>
@@ -408,16 +345,11 @@ export default function Home() {
             <h3>AUTOMATE</h3>
             <p>Connect systems and intelligent workflows.</p>
           </div>
-
         </div>
-
       </section>
 
-
       {/* CONTACT */}
-
       <section id="contact" className="contact section">
-
         <div className="contact-glow" />
 
         <span className="contact-label">
@@ -440,16 +372,15 @@ export default function Home() {
         >
           Start a Conversation ↗
         </a>
-
       </section>
 
-
       {/* FOOTER */}
-
       <footer className="footer">
-
         <div>
-          <strong>AHMED HANY<span>.</span></strong>
+          <strong>
+            AHMED HANY<span>.</span>
+          </strong>
+
           <p>WEB / AI / DIGITAL</p>
         </div>
 
@@ -457,9 +388,7 @@ export default function Home() {
           <p>© 2026 AHMED HANY</p>
           <p>BUILT FOR THE FUTURE.</p>
         </div>
-
       </footer>
-
     </main>
   );
 }
